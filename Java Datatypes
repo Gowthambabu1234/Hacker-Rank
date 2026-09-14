@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        while (T-- > 0) {
+            String input = sc.next();
+            BigInteger n = new BigInteger(input);
+            boolean fitted = false;
+            if (n.compareTo(BigInteger.valueOf(Byte.MIN_VALUE)) >= 0 &&
+                n.compareTo(BigInteger.valueOf(Byte.MAX_VALUE)) <= 0) {
+                System.out.println(input + " can be fitted in:");
+                System.out.println("* byte");
+                fitted = true;
+            }
+            if (n.compareTo(BigInteger.valueOf(Short.MIN_VALUE)) >= 0 &&
+                n.compareTo(BigInteger.valueOf(Short.MAX_VALUE)) <= 0) {
+                if (!fitted) {
+                    System.out.println(input + " can be fitted in:");
+                    fitted = true;
+                }
+                System.out.println("* short");
+            }
+            if (n.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) >= 0 &&
+                n.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) <= 0) {
+                if (!fitted) {
+                    System.out.println(input + " can be fitted in:");
+                    fitted = true;
+                }
+                System.out.println("* int");
+            }
+            if (n.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) >= 0 &&
+                n.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
+                if (!fitted) {
+                    System.out.println(input + " can be fitted in:");
+                    fitted = true;
+                }
+                System.out.println("* long");
+            }
+            if (!fitted) {
+                System.out.println(input + " can't be fitted anywhere.");
+            }
+        }
+        sc.close();
+    }
+}
